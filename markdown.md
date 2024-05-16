@@ -46,16 +46,23 @@ Creating a music website application using MERN stack.
 
 ### Backend Package
 
-**- Intall Mongoose, express, cors**
+**- Install Mongoose, express, cors**
 
     npm intall mongoose express cors
+**- Install Nodemon**
 
+    npm install nodemon
+**- Install dotenv**
 
+    npm install dotenv
+**- Install cookie parser**
+
+    npm install cookie-parser
 ---
 
 # Backend Development 
 
-### 6. Define Song Model
+### 6. Define Song Model, Controller, routes
 
 Define MongoDB schema for songs Include fields:
 - Title
@@ -63,7 +70,7 @@ Define MongoDB schema for songs Include fields:
 - Album
 - Genre
 
-### 7. Authentication setup
+### 7. Define User Model, Controller, routes 
 
 Define MongoDB schema for User Include fields:
 - name
@@ -76,7 +83,15 @@ Define MongoDB schema for User Include fields:
 - Create endpoint to list all songs
 - Create endpoint to update a song
 - Create endpoint to delete a song
-- Create endpoint to authentication
+- Create endpoint to create a new user
+- *---Create endpoint to list all users*
+- Create endpoint to update a user
+- Create endpoint to delete a user
+
+### 7. Authentication setup
+- Create Authentication 
+- Create a middleware
+  
 
 ### 9. Implement Statistics Endpoints
 
@@ -87,7 +102,7 @@ Define MongoDB schema for User Include fields:
 ### 10. Test API Endpoints
 
 - Write unit tests for each endpoint using testing frameworks like Jest
-- Test API functionality using Postman or similar tools
+- Test API functionality using Thunder Client
   
 ### 11. Dockerize Backend
 
