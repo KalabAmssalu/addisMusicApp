@@ -61,6 +61,9 @@ Creating a music website application using MERN stack.
 **- Install cookie parser**
 
     npm install cookie-parser
+**- Install bycrpt, jsonwebparser**
+
+    npm install bcryptjs jsonwebtoken
 ---
 
 # Backend Development 
