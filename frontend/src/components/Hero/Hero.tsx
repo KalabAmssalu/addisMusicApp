@@ -1,10 +1,12 @@
 import { Button } from "../common/Button";
 import { HomeImg } from "../../assets/image";
 import { Section } from "../common/Section";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Hero = (props: Props) => {
+  const navigate = useNavigate();
   return (
     <Section>
       {/* left side */}
@@ -35,7 +37,14 @@ const Hero = (props: Props) => {
         </p>
         <br />
         <div className="center">
-          <Button variant="filled">Start Here</Button>
+          <Button
+            variant="filled"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Start Here
+          </Button>
         </div>
       </div>
 

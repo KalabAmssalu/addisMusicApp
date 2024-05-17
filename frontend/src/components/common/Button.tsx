@@ -7,7 +7,7 @@ interface ButtonProps {
 
 // Use the prop type in the styled component
 export const Button = styled.button<ButtonProps>`
-  padding: 5px 10px;
+  padding: 8px 15px;
   background-color: ${(props) =>
     props.variant === "outline" ? "#264653" : "#2a9d8f"};
   display: inline-block;

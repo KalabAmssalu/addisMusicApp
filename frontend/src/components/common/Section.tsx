@@ -13,3 +13,7 @@ export const Section = styled.section`
   align-items: center;
   gap: 2rem;
 `;
+
+export const MiniSection = styled(Section)`
+  height: 20rem;
+`;
