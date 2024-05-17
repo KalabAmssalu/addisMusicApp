@@ -14,7 +14,7 @@ Creating a music website application using MERN stack.
 
 ### 2. Create a github repository **"addisMusicApp"** 
    
-   - Go to GitHub and create a new repository named "addisMusicApp".
+   - On GitHub create a new repository named "addisMusicApp".
 ### 3. Create a frontend
 
         npm create-react-app frontend --template typescript
@@ -30,7 +30,7 @@ Creating a music website application using MERN stack.
 
 **- Install emotion Styled System**   
 
-    npm i @emotion/styled @emotion/react
+    npm i @emotion/styled @emotion/react @emotion/core
 
 **- Install Redux Toolkit**
 
@@ -41,7 +41,10 @@ Creating a music website application using MERN stack.
     npm install redux-saga
 **- Install Styled system**
 
-    npm i styled-system styled-components
+    npm i styled-system styled-components @types/styled-components
+**- Install React-Router-Dom**
+
+    npm install react-router-dom
 ---
 
 ### Backend Package
@@ -124,10 +127,6 @@ Define MongoDB schema for User Include fields:
 ---
 ---
 ---
-
-
-
-
 
 
 

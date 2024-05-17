@@ -1,9 +1,15 @@
-import React from "react";
+import { Section } from "../components/common/Section";
+
+import Hero from "../components/Hero/Hero";
 
 type Props = {};
 
 const Home = (props: Props) => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 };
 
 export default Home;
