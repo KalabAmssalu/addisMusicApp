@@ -31,10 +31,17 @@ export const SubmitButton = styled(Button).attrs({
   type: "submit",
 })`
   box-shadow: 0 2px #999;
+  background-image: linear-gradient(to right, #c33727, #e9c46a);
   &:active {
-    background-color: ${(props) =>
-      props.variant === "outline" ? "#264653" : "#2a9d8f"};
+    background-color: #e9c46a;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+  &:hover {
+    background-image: linear-gradient(to top, #c33727, #e9c46a);
+    color: black;
+  }
 `;
+
+// background-color: ${(props) =>
+//   props.variant === "outline" ? "#264653" : "#2a9d8f"};

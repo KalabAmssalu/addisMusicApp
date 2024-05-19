@@ -45,6 +45,12 @@ Creating a music website application using MERN stack.
 **- Install React-Router-Dom**
 
     npm install react-router-dom
+**- Install Lucide React icons**
+
+    npm install lucide-react
+**- Install React Toastify** 
+
+    npm install --save react-toastify
 ---
 
 ### Backend Package
@@ -96,13 +102,12 @@ Define MongoDB schema for User Include fields:
 
 ### 7. Authentication setup
 - Create Authentication 
-- Create a middleware
+- Create a protect middleware
   
 
 ### 9. Implement Statistics Endpoints
 
 - Create endpoint to calculate and return overall statistics
-
 - Include statistics such as total songs, artists, albums, genres, songs per genre, etc.
   
 ### 10. Test API Endpoints
@@ -115,13 +120,6 @@ Define MongoDB schema for User Include fields:
 - Create Dockerfile for backend
 - Docker-compose for MongoDB and backend
   
-
-<!-- 1. Create a Frontend Landing Page
-   - Create landing page components and styles as required.
-2. Organize a route
-   - Set up routes for your frontend application using React Router or any other routing library of your choice. -->
-
-
 
 
 ---
@@ -139,6 +137,9 @@ Define MongoDB schema for User Include fields:
 
 - Initialize React project with Typescript
 - Install required packages (Redux Toolkit, Redux-Saga, Emotion, Styled System)
+
+### Create a Landing page
+- creating an intractive Landing page for the website
 
 ### Create Song Listing Page
 
