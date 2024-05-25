@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../state/slices/usersApiSlice";
 import { logout } from "../../state/slices/authSlice";
 import { toast } from "react-toastify";
+import SubHeader from "./SubHeader";
 
 interface RootState {
   auth: {
@@ -146,6 +147,19 @@ const Header = (props: Props) => {
           </>
         )}
       </div>
+      {userInfo && (
+        <div
+          className={css`
+            position: sticky;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          `}
+        >
+          <SubHeader />
+        </div>
+      )}
     </>
   );
 };

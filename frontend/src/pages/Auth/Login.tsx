@@ -13,8 +13,9 @@ interface RootState {
   };
 }
 interface UserInfoType {
-  password: string;
+  name: string;
   email: string;
+  _id: string;
 }
 
 type Props = {};

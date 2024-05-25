@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCredentials } from "../../state/slices/authSlice";
 import { toast } from "react-toastify";
-import { useRegisterMutation } from "../../state/slices/usersApiSlice";
+import { useUpdateUserMutation } from "../../state/slices/usersApiSlice";
 
 interface RootState {
   auth: {
@@ -20,7 +20,7 @@ interface UserInfoType {
 
 type Props = {};
 
-const SignUp = (props: Props) => {
+const Profile = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confpassword, setconfpassword] = useState("");
@@ -30,21 +30,25 @@ const SignUp = (props: Props) => {
 
   const { userInfo } = useSelector((state: RootState) => state.auth);
 
-  const [register, { isLoading }] = useRegisterMutation();
+  const [updateProfile, { isLoading }] = useUpdateUserMutation();
 
   useEffect(() => {
-    if (userInfo) {
-      navigate("/");
-    }
-  }, [userInfo, navigate]);
+    setName(userInfo.name);
+    setEmail(userInfo.email);
+  }, [userInfo.name, userInfo.email]);
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (checkPassword()) {
       try {
-        const res = await register({ name, email, password }).unwrap();
+        const res = await updateProfile({
+          _id: userInfo._id,
+          name,
+          email,
+          password,
+        }).unwrap();
         dispatch(setCredentials({ ...res }));
-        navigate("/");
+        toast.success("Profile Updated");
       } catch (err) {
         toast.error(
           (err as any)?.data?.message ||
@@ -113,7 +117,7 @@ const SignUp = (props: Props) => {
               text-align: center;
             `}
           >
-            Register
+            Update Profile
           </h1>
           <form
             onSubmit={submitHandler}
@@ -190,25 +194,13 @@ const SignUp = (props: Props) => {
               `}
               disabled={isLoading ? true : false}
             >
-              Subscribe
+              Update
             </SubmitButton>
           </form>
-          <p
-            className={css`
-              color: #d5dbe0;
-              cursor: pointer;
-              text-align: center;
-            `}
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            I Already have an account.
-          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default SignUp;
+export default Profile;

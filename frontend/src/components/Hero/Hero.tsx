@@ -2,11 +2,29 @@ import { Button } from "../common/Button";
 import { HomeImg } from "../../assets/image";
 import { Section } from "../common/Section";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { css } from "@emotion/css";
+import SearchInput from "../common/SearchInput";
+
+interface RootState {
+  auth: {
+    userInfo: UserInfoType;
+  };
+}
+
+interface UserInfoType {
+  name: string;
+  email: string;
+  _id: string;
+}
 
 type Props = {};
 
 const Hero = (props: Props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state: RootState) => state.auth);
+
   return (
     <Section>
       {/* left side */}
@@ -25,27 +43,54 @@ const Hero = (props: Props) => {
         <br />
         <br />
         <br />
-        <p className="center">
-          Welcome to Addis Music Web Application, the ultimate destination for
-          music lovers! Dive into a world where melodies meet innovation,
-          offering you a seamless and immersive musical experience. Whether
-          you're a casual listener or a dedicated audiophile, our app is
-          designed to cater to your every need. Discover new artists, create
-          personalized playlists, and enjoy high-quality streaming anytime,
-          anywhere. Join our vibrant community of music enthusiasts and let the
-          rhythm of Addis Music be the soundtrack to your life.
-        </p>
-        <br />
-        <div className="center">
-          <Button
-            variant="filled"
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            Start Here
-          </Button>
-        </div>
+        {userInfo ? (
+          <>
+            <h3
+              className={css`
+                margin: 2rem 1rem;
+              `}
+            >
+              Search music using name of the music, artists, albums, genres,
+              songs per genre,
+            </h3>
+
+            <div
+              className={css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              `}
+            >
+              <label htmlFor="search"> Search: </label>
+              <SearchInput />
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="center">
+              Welcome to Addis Music Web Application, the ultimate destination
+              for music lovers! Dive into a world where melodies meet
+              innovation, offering you a seamless and immersive musical
+              experience. Whether you're a casual listener or a dedicated
+              audiophile, our app is designed to cater to your every need.
+              Discover new artists, create personalized playlists, and enjoy
+              high-quality streaming anytime, anywhere. Join our vibrant
+              community of music enthusiasts and let the rhythm of Addis Music
+              be the soundtrack to your life.
+            </p>
+            <br />
+            <div className="center">
+              <Button
+                variant="filled"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Start Here
+              </Button>
+            </div>
+          </>
+        )}
       </div>
 
       {/* right */}
