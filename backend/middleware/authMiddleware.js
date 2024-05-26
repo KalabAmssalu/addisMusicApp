@@ -4,23 +4,17 @@ const User = require('../models/User');
 const protect = async (req, res, next) => {
     let token;
 
-    // Check if token is in the Authorization header or in cookies
+    // Check token is in the Authorization header or in cookies
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
     } else if (req.cookies.jwt) {
         token = req.cookies.jwt;
     }
 
-    // Logging the token for debugging purposes
-    console.log("token:", token);
-
     if (token) {
         try {
-            // Verify token
+         
             const decoded = jwt.verify(token, process.env.JWT);
-            console.log("decoded jwt:", decoded);
-
-            // Find the user and exclude the password
             req.user = await User.findById(decoded.userId).select('-password');
             next();
         } catch (error) {

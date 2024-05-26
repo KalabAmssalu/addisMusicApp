@@ -31,7 +31,7 @@ const Call = (props: Props) => {
         <Button
           variant="filled"
           onClick={() => {
-            navigate("/login");
+            navigate("/signup");
           }}
         >
           Subscribe

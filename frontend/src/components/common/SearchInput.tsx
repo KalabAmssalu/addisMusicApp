@@ -18,6 +18,9 @@ const SearchInput = (props: Props) => {
         margin-left: 1rem;
         background-color: transparent;
         border-color: white;
+        @media (max-width: 768px) {
+          width: 20rem;
+        }
       `}
     >
       <input
@@ -33,6 +36,9 @@ const SearchInput = (props: Props) => {
           padding-left: 1rem;
           &:focus {
             outline: none;
+          }
+          @media (max-width: 768px) {
+            width: 16rem;
           }
         `}
       />

@@ -56,6 +56,9 @@ const Header = (props: Props) => {
           background-image: linear-gradient(to right, #c33727, #e9c46a);
           height: 50px;
           width: 100%;
+          @media (max-width: 768px) {
+            padding: 2px;
+          }
         `}
       >
         {/* Left */}
@@ -85,6 +88,10 @@ const Header = (props: Props) => {
             className={css`
               color: #264653;
               font-size: xx-large;
+              @media (max-width: 768px) {
+                width: 100%;
+                display: none;
+              }
             `}
           >
             Adiss Music
@@ -102,7 +109,15 @@ const Header = (props: Props) => {
                 margin-right: 2rem;
               `}
             >
-              <h3>Welcome {userInfo.name}!</h3>
+              <h3
+                className={css`
+                  @media (max-width: 768px) {
+                    display: none;
+                  }
+                `}
+              >
+                Welcome {userInfo.name}!
+              </h3>
 
               <Button
                 variant="filled"

@@ -2,7 +2,8 @@ import Call from "../components/CTA/Call";
 import CTA from "../components/CTA/CTA";
 import Hero from "../components/Hero/Hero";
 import Project from "../components/Project/Project";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import Feature from "../components/feature/Feature";
 
 interface RootState {
   auth: {
@@ -24,7 +25,7 @@ const Home = (props: Props) => {
   return (
     <>
       <Hero />
-      <Project />
+      {userInfo && <Feature />}
       <CTA />
       {!userInfo && <Call />}
     </>

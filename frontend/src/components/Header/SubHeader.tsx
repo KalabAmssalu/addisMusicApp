@@ -22,6 +22,10 @@ const SubHeader = (props: Props) => {
         backdrop-filter: blur(15px);
         color: #e9c46a;
         cursor: pointer;
+        @media (max-width: 768px) {
+          width: 22rem;
+          bottom: 1rem;
+        }
       `}
     >
       <h3

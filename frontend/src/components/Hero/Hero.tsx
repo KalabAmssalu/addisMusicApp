@@ -1,8 +1,9 @@
+import React from "react";
 import { Button } from "../common/Button";
 import { HomeImg } from "../../assets/image";
 import { Section } from "../common/Section";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { css } from "@emotion/css";
 import SearchInput from "../common/SearchInput";
 
@@ -22,23 +23,35 @@ type Props = {};
 
 const Hero = (props: Props) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { userInfo } = useSelector((state: RootState) => state.auth);
 
   return (
     <Section>
       {/* left side */}
       <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center",
-          width: "50%",
-          margin: "5rem",
-        }}
+        className={css`
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          text-align: center;
+          width: 50%;
+          margin: 5rem;
+          @media (max-width: 768px) {
+            width: 100%;
+            margin: 0rem;
+          }
+        `}
       >
-        <h1 className="big-text">
-          Addis <span style={{ backgroundColor: "#c33727" }}>Music </span>
+        <h1
+          className={css`
+            font-size: 7rem;
+            @media (max-width: 768px) {
+              font-size: 4rem;
+              margin-top: 4rem;
+            }
+          `}
+        >
+          Addis <span style={{ backgroundColor: "#c33727" }}>Music</span>
         </h1>
         <br />
         <br />
@@ -48,6 +61,9 @@ const Hero = (props: Props) => {
             <h3
               className={css`
                 margin: 2rem 1rem;
+                @media (max-width: 768px) {
+                  margin: 1rem 0.5rem;
+                }
               `}
             >
               Search music using name of the music, artists, albums, genres,
@@ -59,6 +75,10 @@ const Hero = (props: Props) => {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                @media (max-width: 768px) {
+                  flex-direction: column;
+                  gap: 20px;
+                }
               `}
             >
               <label htmlFor="search"> Search: </label>
@@ -94,11 +114,26 @@ const Hero = (props: Props) => {
       </div>
 
       {/* right */}
-      <div>
+      <div
+        className={css`
+          @media (max-width: 768px) {
+            width: 100%;
+            display: none;
+          }
+        `}
+      >
         <img
           src={HomeImg}
           alt="Addis"
-          style={{ width: "600px", height: "600px" }}
+          className={css`
+            width: 600px;
+            height: 600px;
+            @media (max-width: 768px) {
+              width: 80%;
+              height: auto;
+              display: none;
+            }
+          `}
         />
       </div>
     </Section>

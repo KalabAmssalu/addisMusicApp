@@ -12,6 +12,14 @@ export const Section = styled.section`
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    align-items: start;
+    padding-top: 2rem;
+    height: fit-content;
+    border: 0px;
+  }
 `;
 
 export const MiniSection = styled(Section)`
