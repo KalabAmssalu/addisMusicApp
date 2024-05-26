@@ -11,6 +11,9 @@ connectDatabase();
 //routes Import
 const songRoutes = require('./routes/songRoutes');
 const userRoutes = require('./routes/userRoutes');
+const artistRoutes = require('./routes/ArtistRoutes');
+const albumRoutes = require('./routes/AlbumRoutes')
+
 
 
 // Middleware
@@ -28,6 +31,8 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 //api route
 app.use('/api', songRoutes);
 app.use('/api', userRoutes);
+app.use('/api', artistRoutes);
+app.use('/api', albumRoutes);
 
 
 const PORT = process.env.PORT || 3500;

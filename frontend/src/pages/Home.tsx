@@ -4,6 +4,9 @@ import Hero from "../components/Hero/Hero";
 import Project from "../components/Project/Project";
 import { useSelector } from "react-redux";
 import Feature from "../components/feature/Feature";
+import RecentMusic from "../components/Project/RecentMusic";
+import PopularArtist from "../components/Project/PopularArtist";
+import Banner from "../components/feature/Banner";
 
 interface RootState {
   auth: {
@@ -28,6 +31,9 @@ const Home = (props: Props) => {
       {userInfo && <Feature />}
       <CTA />
       {!userInfo && <Call />}
+      <RecentMusic />
+      <PopularArtist />
+      <Banner />
     </>
   );
 };

@@ -140,6 +140,9 @@ Define MongoDB schema for User Include fields:
 
 ### Create a Landing page
 - creating an intractive Landing page for the website
+  
+### Create a About page
+- creating an intractive About page for the website
 
 ### Create Song Listing Page
 

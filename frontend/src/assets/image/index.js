@@ -4,7 +4,7 @@ import Software from './software.jpeg'
 import avatar from './avatar1.png'
 import website from './website.png'
 import person1 from './person1.png'
+import banner from './banner.png'
 
 
-
-export {AdissLogo, HomeImg, Software, avatar, website, person1}
+export {AdissLogo, HomeImg, Software, avatar, website, person1, banner}

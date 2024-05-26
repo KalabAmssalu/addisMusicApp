@@ -78,6 +78,9 @@ const Login = (props: Props) => {
           justify-content: center;
           align-items: center;
           gap: 1rem;
+          @media (max-width: 768px) {
+            width: 23rem;
+          }
         `}
       >
         <div
@@ -88,10 +91,14 @@ const Login = (props: Props) => {
             background-color: #2a9d8f;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; //have to be edited
+            justify-content: flex-start;
             padding: 25px;
             gap: 1.5rem;
             padding-top: 5rem;
+            @media (max-width: 768px) {
+              width: 22rem;
+              padding: 22px;
+            }
           `}
         >
           <h1
