@@ -31,10 +31,9 @@ const Hero = (props: Props) => {
       <div
         className={css`
           display: flex;
-          flex-wrap: wrap;
           flex-direction: column;
           text-align: center;
-          width: 50%;
+          width: 100%;
           margin: 5rem;
           @media (max-width: 768px) {
             width: 100%;
@@ -131,7 +130,6 @@ const Hero = (props: Props) => {
             @media (max-width: 768px) {
               width: 80%;
               height: auto;
-              display: none;
             }
           `}
         />

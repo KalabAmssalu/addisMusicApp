@@ -22,7 +22,7 @@ const SubHeader = (props: Props) => {
         backdrop-filter: blur(15px);
         color: #e9c46a;
         cursor: pointer;
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           width: 22rem;
           bottom: 1rem;
         }

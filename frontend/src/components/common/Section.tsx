@@ -20,6 +20,14 @@ export const Section = styled.section`
     height: fit-content;
     border: 0px;
   }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0rem;
+    flex: 1;
+  }
 `;
 
 export const MiniSection = styled(Section)`

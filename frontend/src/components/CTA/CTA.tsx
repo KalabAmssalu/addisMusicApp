@@ -36,6 +36,13 @@ const CTA = (props: Props) => {
             padding: 0rem;
             flex-direction: column;
           }
+          @media (min-width: 769px) and (max-width: 1024px) {
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+            gap: 0rem;
+          }
         `}
       >
         {userInfo ? (
@@ -57,6 +64,9 @@ const CTA = (props: Props) => {
               font-size: 7rem;
               @media (max-width: 768px) {
                 font-size: 4rem;
+              }
+              @media (min-width: 769px) and (max-width: 1024px) {
+                font-size: large;
               }
             `}
           >

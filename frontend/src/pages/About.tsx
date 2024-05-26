@@ -17,6 +17,10 @@ const About = (props: Props) => {
           justify-content: center;
           width: 100%;
           height: 100%;
+          @media (max-width: 768px) {
+            padding-top: 4rem;
+            margin-bottom: 10rem;
+          }
         `}
       >
         <img
