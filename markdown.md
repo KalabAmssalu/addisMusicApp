@@ -74,12 +74,26 @@ Creating a music website application using MERN stack.
 
 # Backend Development 
 
-### 6. Define Song Model, Controller, routes
+### 6. Define Song Model, Artist Model, Album Model with controller and Routes
 
 Define MongoDB schema for songs Include fields:
 - Title
 - Artist
 - Album
+- Genre
+- cover-image (coverUrl)
+- releaseDate
+  
+Define MongoDB schema for album Include fields:
+- Title
+- Artist
+- cover-image (coverUrl)
+- releaseDate
+- Genre
+  
+Define MongoDB schema for artist Include fields:
+- Name
+- Artist-image (artistUrl)
 - Genre
 
 ### 7. Define User Model, Controller, routes 
