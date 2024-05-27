@@ -4,10 +4,10 @@ const albumController = require('../controllers/AlbumController')
 const protect = require('../middleware/authMiddleware')
 
 // Album routes
-router.post('/albums', albumController.createAlbum);
-router.get('/albums', albumController.getAllAlbums);
-router.get('/albums/:id', albumController.getAlbumById);
-router.put('/albums/:id', albumController.updateAlbumById);
-router.delete('/albums/:id', albumController.deleteAlbumById);
+router.post('/albums', protect, albumController.createAlbum);
+router.get('/albums', protect, albumController.getAllAlbums);
+router.get('/albums/:id', protect, albumController.getAlbumById);
+router.put('/albums/:id', protect, albumController.updateAlbumById);
+router.delete('/albums/:id', protect, albumController.deleteAlbumById);
 
 module.exports = router;

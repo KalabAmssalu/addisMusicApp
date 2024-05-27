@@ -31,8 +31,8 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 //api route
 app.use('/api', songRoutes);
 app.use('/api', userRoutes);
-app.use('/api', artistRoutes);
-app.use('/api', albumRoutes);
+app.use('/api/song', artistRoutes);
+app.use('/api/song', albumRoutes);
 
 
 const PORT = process.env.PORT || 3500;

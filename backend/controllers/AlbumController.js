@@ -1,6 +1,5 @@
 const Album = require('../models/Album');
 
-// Create a new album
 exports.createAlbum = async (req, res) => {
     try {
         const album = new Album(req.body);
@@ -11,7 +10,6 @@ exports.createAlbum = async (req, res) => {
     }
 };
 
-// Get all albums
 exports.getAllAlbums = async (req, res) => {
     try {
         const albums = await Album.find().populate('artist');
@@ -21,7 +19,6 @@ exports.getAllAlbums = async (req, res) => {
     }
 };
 
-// Get album by ID
 exports.getAlbumById = async (req, res) => {
     try {
         const album = await Album.findById(req.params.id).populate('artist');
@@ -34,7 +31,7 @@ exports.getAlbumById = async (req, res) => {
     }
 };
 
-// Update album by ID
+
 exports.updateAlbumById = async (req, res) => {
     try {
         const album = await Album.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }).populate('artist');
@@ -47,7 +44,7 @@ exports.updateAlbumById = async (req, res) => {
     }
 };
 
-// Delete album by ID
+
 exports.deleteAlbumById = async (req, res) => {
     try {
         const album = await Album.findByIdAndDelete(req.params.id);
