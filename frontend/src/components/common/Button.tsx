@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
-// Define the prop type
 interface ButtonProps {
   variant?: "outline" | "filled";
+  customStyles?: CSSProperties;
 }
 
-// Use the prop type in the styled component
 export const Button = styled.button<ButtonProps>`
   padding: 8px 15px;
   background-color: ${(props) =>
@@ -25,6 +24,8 @@ export const Button = styled.button<ButtonProps>`
     background-color: #e9c46a;
   }
   transition: all 0.5s ease-out;
+
+  ${(props) => props.customStyles && { ...props.customStyles }};
 `;
 
 export const SubmitButton = styled(Button).attrs({
@@ -42,6 +43,3 @@ export const SubmitButton = styled(Button).attrs({
     color: black;
   }
 `;
-
-// background-color: ${(props) =>
-//   props.variant === "outline" ? "#264653" : "#2a9d8f"};

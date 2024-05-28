@@ -2,14 +2,17 @@ import React from "react";
 import { css } from "@emotion/css";
 import { Search } from "lucide-react";
 
-type Props = {};
+type Props = {
+  widthOf: string;
+};
 
-const SearchInput = (props: Props) => {
+const SearchInput: React.FC<Props> = ({ widthOf }) => {
+  const widthofInput = `calc(${widthOf} - 4rem)`;
   return (
     <div
       className={css`
         height: 40px;
-        width: 24rem;
+        width: ${widthOf};
         border-radius: 20px;
         border: 2px solid white;
         display: flex;
@@ -28,7 +31,7 @@ const SearchInput = (props: Props) => {
         name="search"
         className={css`
           height: 36px;
-          width: 20rem;
+          width: ${widthofInput};
           background-color: transparent;
           color: white;
           border: 0px;
@@ -38,20 +41,18 @@ const SearchInput = (props: Props) => {
             outline: none;
           }
           @media (max-width: 768px) {
-            width: 16rem;
+            width: calc(20rem - 4rem);
           }
         `}
       />
-      {
-        <Search
-          className={css`
-            height: 25px;
-            width: 25px;
-            margin-left: 1rem;
-            color: #e9c46a;
-          `}
-        />
-      }
+      <Search
+        className={css`
+          height: 25px;
+          width: 25px;
+          margin: 0rem 0.5rem;
+          color: #e9c46a;
+        `}
+      />
     </div>
   );
 };

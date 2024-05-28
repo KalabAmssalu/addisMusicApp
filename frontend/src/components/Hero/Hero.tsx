@@ -81,7 +81,7 @@ const Hero = (props: Props) => {
               `}
             >
               <label htmlFor="search"> Search: </label>
-              <SearchInput />
+              <SearchInput widthOf="24" />
             </div>
           </>
         ) : (

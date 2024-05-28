@@ -29,6 +29,10 @@ export const CarouselItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  &:hover{
+    background-image: linear-gradient(to top, #c33727, #e9c46a);
+  }
 `;
 
 export const ArtistAvatar = styled.img`

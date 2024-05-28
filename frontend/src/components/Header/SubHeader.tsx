@@ -18,7 +18,7 @@ const SubHeader = (props: Props) => {
         justify-content: space-between;
         border-radius: 50px;
         padding: 0 20px;
-        z-index: 2;
+        z-index: 10;
         backdrop-filter: blur(15px);
         color: #e9c46a;
         cursor: pointer;

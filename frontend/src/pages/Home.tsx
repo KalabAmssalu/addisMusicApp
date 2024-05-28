@@ -7,6 +7,7 @@ import Feature from "../components/feature/Feature";
 import RecentMusic from "../components/Project/RecentMusic";
 import PopularArtist from "../components/Project/PopularArtist";
 import Banner from "../components/feature/Banner";
+import { css } from "@emotion/css";
 
 interface RootState {
   auth: {
@@ -31,7 +32,15 @@ const Home = (props: Props) => {
       {userInfo && <Feature />}
       <CTA />
       {!userInfo && <Call />}
-      <RecentMusic />
+      <div
+        className={css`
+          padding-bottom: 6rem;
+          padding-top: 4rem;
+          background-color: #264653;
+        `}
+      >
+        <RecentMusic />
+      </div>
       <PopularArtist />
       <Banner />
     </>

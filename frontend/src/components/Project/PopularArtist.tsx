@@ -6,42 +6,42 @@ const musicItems = [
   {
     id: 1,
     artist: "Artist One",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?1",
   },
   {
     id: 2,
     artist: "Artist Two",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?2",
   },
   {
     id: 3,
     artist: "Artist Three",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?3",
   },
   {
     id: 4,
     artist: "Artist Four",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?4",
   },
   {
     id: 5,
     artist: "Artist Five",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?5",
   },
   {
     id: 6,
     artist: "Artist Six",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?6",
   },
   {
     id: 7,
     artist: "Artist Seven",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?7",
   },
   {
     id: 8,
     artist: "Artist Eight",
-    avatarUrl: "https://via.placeholder.com/150",
+    avatarUrl: "https://picsum.photos/150/150?music?8",
   },
 ];
 

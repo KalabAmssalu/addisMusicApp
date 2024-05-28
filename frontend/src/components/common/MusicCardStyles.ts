@@ -1,20 +1,16 @@
 // CarouselStyles.ts
 import styled from 'styled-components';
 
-export const CarouselContainer = styled.div`
+export const MusicCardContainer = styled.div`
   display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  background-color:  #264653;
-  &::-webkit-scrollbar {
-    display: none;
+  flex-wrap: wrap;
+  border-bottom: 10px solid #2a9d8f;
+  @media (max-width: 768px){
+    flex-direction: column;
   }
- 
 `;
 
-export const CarouselItem = styled.div`
+export const MusicCardItem = styled.div`
   flex: 0 0 auto;
   width: 200px;
   margin: 10px;

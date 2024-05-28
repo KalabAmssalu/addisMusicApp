@@ -1,14 +1,30 @@
-import React from "react";
-import { Section } from "../../components/common/Section";
+import React, { useRef } from "react";
 import { css } from "@emotion/css";
 import SearchInput from "../../components/common/SearchInput";
 import Feature from "../../components/feature/Feature";
+import AllMusic from "../../components/Project/AllMusic";
+import { ChevronUp } from "lucide-react";
 
 type Props = {};
 
 const Search = (props: Props) => {
+  const topRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTop = () => {
+    topRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <Section>
+    <div
+      ref={topRef}
+      className={css`
+        background-color: #264653;
+        padding: 5rem;
+        padding-bottom: 6rem;
+        color: white;
+        margin-top: 0rem;
+      `}
+    >
       <div
         className={css`
           display: flex;
@@ -17,7 +33,6 @@ const Search = (props: Props) => {
           text-align: center;
           width: 100%;
           height: 80%;
-          margin: 2rem;
 
           @media (max-width: 768px) {
             margin: 0rem;
@@ -32,6 +47,7 @@ const Search = (props: Props) => {
             align-items: center;
             text-align: center;
           `}
+          id="topheader"
         >
           <h1
             className={css`
@@ -64,7 +80,7 @@ const Search = (props: Props) => {
             `}
           >
             <label htmlFor="search"> Search: </label>
-            <SearchInput />
+            <SearchInput widthOf="24rem" />
           </div>
         </div>
         <div
@@ -77,8 +93,33 @@ const Search = (props: Props) => {
         >
           <Feature />
         </div>
+        <AllMusic />
       </div>
-    </Section>
+      <div>
+        <button
+          onClick={scrollToTop}
+          className={css`
+            background-color: white;
+            color: black;
+            width: 45px;
+            height: 45px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 1rem;
+            right: 2rem;
+            &:hover {
+              background-color: #e9c46a;
+              color: transparent;
+            }
+          `}
+        >
+          <ChevronUp size={48} color="black" />
+        </button>
+      </div>
+    </div>
   );
 };
 

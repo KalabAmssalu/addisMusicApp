@@ -30,7 +30,7 @@ const FeatureItem = styled.div`
   flex: 1;
   padding: 10px;
   margin: 10px;
-  background-color: #fff;
+  background-color: #fdf2e6;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -44,6 +44,11 @@ const FeatureItem = styled.div`
   color: black;
   cursor: pointer;
   min-width: 200px;
+
+  &:hover {
+    background-color: transparent;
+    color: #fdf2e6;
+  }
 
   @media (max-width: 768px) {
     margin: 10px 0;
