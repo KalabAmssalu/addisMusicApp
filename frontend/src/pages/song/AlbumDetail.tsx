@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import RecentMusic from "../../components/Project/RecentMusic";
 
 const Container = styled.div`
   background-color: #264653;
@@ -57,6 +56,7 @@ const DetailTable = styled.table`
   th,
   td {
     padding: 5px;
+    cursor: pointer;
   }
 
   tr:nth-of-type(odd) {
@@ -70,7 +70,7 @@ const DetailTable = styled.table`
 
 type Props = {};
 
-const SongDetail: React.FC<Props> = () => {
+const AlbumDetail: React.FC<Props> = () => {
   return (
     <Container>
       <Main>
@@ -83,31 +83,58 @@ const SongDetail: React.FC<Props> = () => {
         <DetailTable>
           <tbody>
             <tr>
-              <th>Title</th>
+              <th>Track 1</th>
               <td>Sample Title</td>
             </tr>
             <tr>
-              <th>Artist</th>
+              <th>Track 2</th>
               <td>Sample Artist</td>
             </tr>
             <tr>
-              <th>Album</th>
+              <th>Track 3</th>
               <td>Sample Album</td>
             </tr>
             <tr>
-              <th>Genre</th>
+              <th>Track 4</th>
               <td>Sample Genre</td>
             </tr>
             <tr>
-              <th>Release Date</th>
+              <th>Track 5</th>
+              <td>Sample Release Date</td>
+            </tr>
+            <tr>
+              <th>Track 6</th>
+              <td>Sample Album</td>
+            </tr>
+            <tr>
+              <th>Track 7</th>
+              <td>Sample Genre</td>
+            </tr>
+            <tr>
+              <th>Track 8</th>
+              <td>Sample Release Date</td>
+            </tr>
+            <tr>
+              <th>Track 9</th>
+              <td>Sample Release Date</td>
+            </tr>
+            <tr>
+              <th>Track 10</th>
+              <td>Sample Album</td>
+            </tr>
+            <tr>
+              <th>Track 11</th>
+              <td>Sample Genre</td>
+            </tr>
+            <tr>
+              <th>Track 12</th>
               <td>Sample Release Date</td>
             </tr>
           </tbody>
         </DetailTable>
       </Main>
-      <RecentMusic />
     </Container>
   );
 };
 
-export default SongDetail;
+export default AlbumDetail;

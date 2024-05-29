@@ -97,22 +97,48 @@ const musicItems = [
     artist: "Artist Three",
     coverUrl: "https://picsum.photos/150/150?music?9",
   },
+  {
+    id: 16,
+    title: "Song Three",
+    artist: "Artist Three",
+    coverUrl: "https://picsum.photos/150/150?music?9",
+  },
+  {
+    id: 17,
+    title: "Song Three",
+    artist: "Artist Three",
+    coverUrl: "https://picsum.photos/150/150?music?9",
+  },
+  {
+    id: 18,
+    title: "Song Three",
+    artist: "Artist Three",
+    coverUrl: "https://picsum.photos/150/150?music?9",
+  },
+  {
+    id: 19,
+    title: "Song Three",
+    artist: "Artist Three",
+    coverUrl: "https://picsum.photos/150/150?music?9",
+  },
 ];
 
-const AllMusic = (props: Props) => {
+const AllAlbum = (props: Props) => {
   return (
     <div>
       <h1
         className={css`
           text-align: center;
+          margin-bottom: 2rem;
+          margin-top: 3rem;
         `}
       >
-        All Music
+        All Album
       </h1>
       <MusicCardContainer>
         {musicItems.map((musicItem) => (
           <Link
-            to={`/song/${musicItem.id}`}
+            to={`/song/album/${musicItem.id}`}
             className={css`
               text-decoration: none;
             `}
@@ -126,4 +152,4 @@ const AllMusic = (props: Props) => {
   );
 };
 
-export default AllMusic;
+export default AllAlbum;

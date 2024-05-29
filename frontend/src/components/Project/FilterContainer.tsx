@@ -1,8 +1,8 @@
 import React from "react";
-import { SideSearchContainer } from "./AllMusicStyle";
+import { SideSearchContainer } from "../common/styles/AllMusicStyle";
 import { css } from "@emotion/css";
-import SearchInput from "../../components/common/SearchInput";
-import { Button, SubmitButton } from "../../components/common/Button";
+import SearchInput from "../common/SearchInput";
+import { Button, SubmitButton } from "../common/Button";
 
 type Props = {};
 

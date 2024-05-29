@@ -4,10 +4,13 @@ import SearchInput from "../../components/common/SearchInput";
 import Feature from "../../components/feature/Feature";
 import AllMusic from "../../components/Project/AllMusic";
 import { ChevronUp } from "lucide-react";
+import AllAlbum from "../../components/Project/AllAlbum";
+import AllArtist from "../../components/Project/AllArtist";
+import FeatureCatagories from "../../components/feature/FeatureCatagories";
 
 type Props = {};
 
-const Search = (props: Props) => {
+const Categories = (props: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
@@ -64,24 +67,8 @@ const Search = (props: Props) => {
               font-family: Arial, Helvetica, sans-serif;
             `}
           >
-            Search music using name of the music, artists, albums, genres, songs
-            per genre,
+            Watch all music, all artists, and albums by pressing the categories.
           </h3>
-
-          <div
-            className={css`
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              @media (max-width: 768px) {
-                flex-direction: column;
-                gap: 1rem;
-              }
-            `}
-          >
-            <label htmlFor="search"> Search: </label>
-            <SearchInput widthOf="24rem" />
-          </div>
         </div>
         <div
           className={css`
@@ -91,9 +78,11 @@ const Search = (props: Props) => {
             }
           `}
         >
-          <Feature />
+          <FeatureCatagories />
         </div>
         <AllMusic />
+        <AllAlbum />
+        <AllArtist />
       </div>
       <div>
         <button
@@ -114,6 +103,10 @@ const Search = (props: Props) => {
               background-color: #e9c46a;
               color: transparent;
             }
+            @media (max-width: 768px) {
+              bottom: 5rem;
+              right: 1rem;
+            }
           `}
         >
           <ChevronUp size={48} color="black" />
@@ -123,4 +116,4 @@ const Search = (props: Props) => {
   );
 };
 
-export default Search;
+export default Categories;

@@ -6,7 +6,9 @@ import {
   MusicCover,
   MusicTitle,
   ArtistName,
-} from "../common/CarouselStyles";
+} from "../common/styles/CarouselStyles";
+import { Link } from "react-router-dom";
+import { css } from "@emotion/css";
 
 type MusicItem = {
   id: number;
@@ -23,11 +25,19 @@ const MusicCarousel: React.FC<MusicCarouselProps> = ({ musicItems }) => {
   return (
     <CarouselContainer>
       {musicItems.map((item) => (
-        <CarouselItem key={item.id}>
-          <MusicCover src={item.coverUrl} alt={`${item.title} cover`} />
-          <MusicTitle>{item.title}</MusicTitle>
-          <ArtistName>{item.artist}</ArtistName>
-        </CarouselItem>
+        <Link
+          to={`/song/${item.id}`}
+          key={item.id}
+          className={css`
+            text-decoration: none;
+          `}
+        >
+          <CarouselItem key={item.id}>
+            <MusicCover src={item.coverUrl} alt={`${item.title} cover`} />
+            <MusicTitle>{item.title}</MusicTitle>
+            <ArtistName>{item.artist}</ArtistName>
+          </CarouselItem>
+        </Link>
       ))}
     </CarouselContainer>
   );

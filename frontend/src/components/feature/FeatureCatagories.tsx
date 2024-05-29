@@ -1,5 +1,6 @@
-import { AudioLines, Disc3, Music, UsersRound } from "lucide-react";
+import { Disc3, Music, UsersRound } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -38,9 +39,8 @@ const FeatureItem = styled.div`
   min-width: 200px;
 
   &:hover {
-    background-image: linear-gradient(to right, #c33727, #e9c46a);
-    color: white;
-    border: 0px;
+    background-color: transparent;
+    color: #fdf2e6;
   }
 
   @media (max-width: 768px) {
@@ -53,27 +53,36 @@ const FeatureItem = styled.div`
 
 type Props = {};
 
-const Project: React.FC<Props> = (props: Props) => {
+const FeatureCatagories: React.FC<Props> = (props: Props) => {
+  const navigate = useNavigate();
   return (
     <Container>
-      <FeatureItem>
+      <FeatureItem
+        onClick={() => {
+          navigate("/song");
+        }}
+      >
         <Music size={36} />
-        2000+ music
+        All music
       </FeatureItem>
-      <FeatureItem>
-        <AudioLines size={36} />
-        15+ Genre
-      </FeatureItem>
-      <FeatureItem>
-        <UsersRound size={36} />
-        50+ Artist
-      </FeatureItem>
-      <FeatureItem>
+      <FeatureItem
+        onClick={() => {
+          navigate("/song/album");
+        }}
+      >
         <Disc3 size={36} />
-        50+ Album
+        All Albums
+      </FeatureItem>
+      <FeatureItem
+        onClick={() => {
+          navigate("/song/artist");
+        }}
+      >
+        <UsersRound size={36} />
+        All Artists
       </FeatureItem>
     </Container>
   );
 };
 
-export default Project;
+export default FeatureCatagories;

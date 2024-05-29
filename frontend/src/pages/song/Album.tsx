@@ -1,18 +1,11 @@
 import React, { useRef } from "react";
-import {
-  MainContainer,
-  PageContainer,
-} from "../../components/common/styles/AllMusicStyle";
 import { css } from "@emotion/css";
-import FilterContainer from "../../components/Project/FilterContainer";
-import RecentMusic from "../../components/Project/RecentMusic";
-import AllMusic from "../../components/Project/AllMusic";
-import PopularArtist from "../../components/Project/PopularArtist";
 import { ChevronUp } from "lucide-react";
+import AllAlbum from "../../components/Project/AllAlbum";
 
 type Props = {};
 
-const Song = (props: Props) => {
+const Album = (props: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
@@ -24,45 +17,47 @@ const Song = (props: Props) => {
       ref={topRef}
       className={css`
         background-color: #264653;
-        height: fit-content;
+        padding: 5rem;
         padding-bottom: 6rem;
         color: white;
+        margin-top: 0rem;
       `}
     >
-      <PageContainer>
-        <FilterContainer />
-        <MainContainer>
-          <div
-            className={css`
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              text-align: center;
-              @media (max-width: 768px) {
-                display: none;
-              }
-            `}
-          >
-            <h1
-              className={css`
-                font-size: xx-large;
-              `}
-            >
-              Addis <span style={{ backgroundColor: "#c33727" }}>Music </span>
-            </h1>
-          </div>
-          <RecentMusic />
-          <AllMusic />
-        </MainContainer>
-      </PageContainer>
       <div
         className={css`
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+          height: 80%;
+
           @media (max-width: 768px) {
-            display: none;
+            margin: 0rem;
+            padding: 10px;
           }
         `}
       >
-        <PopularArtist />
+        <div
+          className={css`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          `}
+          id="topheader"
+        >
+          <h1
+            className={css`
+              font-size: xx-large;
+            `}
+          >
+            Addis <span style={{ backgroundColor: "#c33727" }}>Music </span>
+          </h1>
+          <br />
+        </div>
+
+        <AllAlbum />
       </div>
       <div>
         <button
@@ -78,7 +73,7 @@ const Song = (props: Props) => {
             align-items: center;
             position: fixed;
             bottom: 1rem;
-            right: 1rem;
+            right: 2rem;
             &:hover {
               background-color: #e9c46a;
               color: transparent;
@@ -96,4 +91,4 @@ const Song = (props: Props) => {
   );
 };
 
-export default Song;
+export default Album;

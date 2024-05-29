@@ -11,7 +11,8 @@ export const PageContainer = styled.div`
     @media (max-width: 768px) {
         grid-template-columns: 100%;
         padding-top: 2rem;
-        margin-bottom: 5rem;
+        margin-bottom: 1rem;
+        height: auto;
     }
 `;
 
@@ -27,6 +28,7 @@ export const SideSearchContainer = styled.div`
     height: 80vh;
     flex-direction: column;
     @media (max-width: 768px) {
+       
         height: auto;
         margin-right: 0;
         border: none;
@@ -38,8 +40,8 @@ export const SideSearchContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
-       justify-content: flex-start;
         display: flex;
+        justify-content: flex-start;
         flex-direction: column;
         padding: 1rem;
         height: 100vh;
@@ -47,4 +49,8 @@ export const MainContainer = styled.div`
         overflow-y: scroll;
         scroll-snap-type: mandatory;
         scroll-behavior: smooth;       
+        @media (max-width: 768px){
+            padding: 0.5rem;
+            padding-top: 3rem;
+        }
 `;

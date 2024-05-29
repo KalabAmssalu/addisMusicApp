@@ -29,7 +29,8 @@ const Home = (props: Props) => {
   return (
     <>
       <Hero />
-      {userInfo && <Feature />}
+      <Project />
+      <Feature />
       <CTA />
       {!userInfo && <Call />}
       <div

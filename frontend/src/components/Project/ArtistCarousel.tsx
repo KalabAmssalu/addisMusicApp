@@ -4,7 +4,7 @@ import {
   CarouselItem,
   ArtistAvatar,
   ArtistName,
-} from "../common/AvatarCarouselStyles";
+} from "../common/styles/AvatarCarouselStyles";
 import { css } from "@emotion/css";
 type MusicItem = {
   id: number;

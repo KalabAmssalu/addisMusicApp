@@ -58,7 +58,7 @@ const SubHeader = (props: Props) => {
       </h3>
       <h3
         onClick={() => {
-          navigate("/search");
+          navigate("/categories");
         }}
         className={css`
           color: #e9c46a;
@@ -68,7 +68,7 @@ const SubHeader = (props: Props) => {
           }
         `}
       >
-        Search
+        Category
       </h3>
       <h3
         onClick={() => {

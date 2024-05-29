@@ -4,7 +4,7 @@ import {
   MusicCardItem,
   MusicCover,
   MusicTitle,
-} from "./MusicCardStyles";
+} from "./styles/MusicCardStyles";
 
 type MusicItem = {
   id: number;
