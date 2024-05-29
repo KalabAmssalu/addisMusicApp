@@ -22,6 +22,7 @@ const songSchema = new mongoose.Schema({
     },
     coverUrl: {
         type: String,
+        required: false
     },
     releaseDate: {
         type: Date,

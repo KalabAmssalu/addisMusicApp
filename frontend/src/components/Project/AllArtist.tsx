@@ -47,6 +47,36 @@ const ArtistItems = [
     artist: "Artist Eight",
     avatarUrl: "https://picsum.photos/150/150?music?8",
   },
+  {
+    id: 9,
+    artist: "Artist Six",
+    avatarUrl: "https://picsum.photos/150/150?music?6",
+  },
+  {
+    id: 10,
+    artist: "Artist Seven",
+    avatarUrl: "https://picsum.photos/150/150?music?7",
+  },
+  {
+    id: 11,
+    artist: "Artist Eight",
+    avatarUrl: "https://picsum.photos/150/150?music?8",
+  },
+  {
+    id: 12,
+    artist: "Artist Six",
+    avatarUrl: "https://picsum.photos/150/150?music?6",
+  },
+  {
+    id: 13,
+    artist: "Artist Seven",
+    avatarUrl: "https://picsum.photos/150/150?music?7",
+  },
+  {
+    id: 14,
+    artist: "Artist Eight",
+    avatarUrl: "https://picsum.photos/150/150?music?8",
+  },
 ];
 
 const AllArtist = (props: Props) => {

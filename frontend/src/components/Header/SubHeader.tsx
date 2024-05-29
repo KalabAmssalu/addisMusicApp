@@ -72,7 +72,7 @@ const SubHeader = (props: Props) => {
       </h3>
       <h3
         onClick={() => {
-          navigate("/about");
+          navigate("/song/add");
         }}
         className={css`
           color: #e9c46a;
@@ -82,7 +82,7 @@ const SubHeader = (props: Props) => {
           }
         `}
       >
-        About
+        Add
       </h3>
     </div>
   );

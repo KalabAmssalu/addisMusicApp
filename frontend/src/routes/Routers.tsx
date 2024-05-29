@@ -13,6 +13,7 @@ import ArtistDetail from "../pages/song/ArtistDetail";
 import AlbumDetail from "../pages/song/AlbumDetail";
 import Album from "../pages/song/Album";
 import Artist from "../pages/song/Artist";
+import AddSong from "../pages/song/AddSong";
 
 type Props = {};
 
@@ -38,6 +39,7 @@ const Routers = (props: Props) => {
         <Route path="/song/album/:id" element={<AlbumDetail />} />
         <Route path="/song/album" element={<Album />} />
         <Route path="/song/artist" element={<Artist />} />
+        <Route path="/song/add" element={<AddSong />} />
         <Route path="/categories" element={<Categories />} />
       </Route>
     </Routes>
