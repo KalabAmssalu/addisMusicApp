@@ -1,6 +1,6 @@
 import { apiSlice } from "./apiSlice";
 
-const SONG_URL = '/api/songs'
+const SONG_URL = '/api/songs';
 
 export const songApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -25,25 +25,60 @@ export const songApiSlice = apiSlice.injectEndpoints({
                 body: data
             })
         }),
-        getAllMusic: builder.mutation({
+        getAllMusic: builder.query({
             query: () => ({
                 url: `${SONG_URL}`,
                 method: 'GET',
             })
         }),
-        getAllAlbum: builder.mutation({
+        getAllAlbum: builder.query({
             query: () => ({
                 url: `${SONG_URL}/albums`,
                 method: 'GET'
             })
         }),
-        getAllArtist: builder.mutation({
+        getAllArtist: builder.query({
             query: () => ({
                 url: `${SONG_URL}/artists`,
                 method: 'GET'
             })
-        })
+        }),
+        getAllStatistics: builder.query({
+            query: () => ({
+                url: '/api/stat',
+                method: 'GET'
+            })
+        }),
+        deleteArtist: builder.mutation({
+            query: (id) => ({
+                url: `${SONG_URL}/artists/${id}`,
+                method: 'DELETE'
+            })
+        }),
+        deleteMusic: builder.mutation({
+            query: (id) => ({
+                url: `${SONG_URL}/${id}`,
+                method: 'DELETE'
+            })
+        }),
+        deleteAlbum: builder.mutation({
+            query: (id) => ({
+                url: `${SONG_URL}/albums/${id}`,
+                method: 'DELETE'
+            })
+        }),
     })
-})
+});
 
-export const { useAddMusicMutation, useAddAlbumMutation, useAddArtistMutation, useGetAllMusicMutation, useGetAllAlbumMutation, useGetAllArtistMutation } = songApiSlice
+export const {
+    useAddMusicMutation,
+    useAddAlbumMutation,
+    useAddArtistMutation,
+    useGetAllMusicQuery,
+    useGetAllAlbumQuery,
+    useGetAllArtistQuery,
+    useGetAllStatisticsQuery,
+    useDeleteArtistMutation,
+    useDeleteMusicMutation,
+    useDeleteAlbumMutation,
+} = songApiSlice;

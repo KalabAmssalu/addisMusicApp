@@ -11,9 +11,9 @@ connectDatabase();
 //routes Import
 const songRoutes = require('./routes/songRoutes');
 const userRoutes = require('./routes/userRoutes');
-const artistRoutes = require('./routes/ArtistRoutes');
-const albumRoutes = require('./routes/AlbumRoutes')
-
+const artistRoutes = require('./routes/artistRoutes');
+const albumRoutes = require('./routes/albumRoutes');
+const statRoutes = require('./routes/statRoutes')
 
 
 // Middleware
@@ -33,7 +33,7 @@ app.use('/api', songRoutes);
 app.use('/api', userRoutes);
 app.use('/api/songs', artistRoutes);
 app.use('/api/songs', albumRoutes);
-
+app.use('/api/stat', statRoutes);
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => {
