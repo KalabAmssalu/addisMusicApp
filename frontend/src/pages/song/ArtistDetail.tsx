@@ -2,6 +2,8 @@ import React from "react";
 import { avatar, website } from "../../assets/image";
 import { css } from "@emotion/css";
 import { Section } from "../../components/common/Section";
+import { Button } from "../../components/common/Button";
+import { Trash2 } from "lucide-react";
 
 type Props = {};
 
@@ -41,6 +43,32 @@ const ArtistDetail = (props: Props) => {
           Artist Name:
         </h2>
         <h1>Kalab Amssalu Bezabeh</h1>
+
+        <div
+          className={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 1rem;
+          `}
+        >
+          <Button
+            variant="filled"
+            customStyles={{
+              fontSize: "18px",
+              padding: "5px 20px",
+              borderRadius: "10px",
+              borderColor: "blue",
+              backgroundColor: "red",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            Delete This Artist <Trash2 />
+          </Button>
+        </div>
       </div>
     </Section>
   );

@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Button } from "../../components/common/Button";
+import { Trash2 } from "lucide-react";
+import { css } from "@emotion/css";
 
 const Container = styled.div`
   background-color: #264653;
@@ -133,6 +136,31 @@ const AlbumDetail: React.FC<Props> = () => {
           </tbody>
         </DetailTable>
       </Main>
+      <div
+        className={css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 1rem;
+        `}
+      >
+        <Button
+          variant="filled"
+          customStyles={{
+            fontSize: "18px",
+            padding: "5px 20px",
+            borderRadius: "10px",
+            borderColor: "blue",
+            backgroundColor: "red",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          Delete This Album <Trash2 />
+        </Button>
+      </div>
     </Container>
   );
 };

@@ -39,6 +39,11 @@ const Selection: React.FC<Props> = ({
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-left: 1rem;
+        }
       `}
     >
       <label htmlFor={name}>

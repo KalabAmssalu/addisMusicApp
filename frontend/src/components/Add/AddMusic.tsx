@@ -8,9 +8,9 @@ type Props = {};
 
 const AddMusic: React.FC<Props> = () => {
   const [title, setTitle] = useState("");
-  const [genre, setGenre] = useState("");
   const [selectedAlbum, setSelectedAlbum] = useState("");
   const [selectedArtist, setSelectedArtist] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("");
   const [coverImage, setCoverImage] = useState<File | null>(null);
   const [releaseDate, setReleaseDate] = useState("");
 
@@ -30,8 +30,23 @@ const AddMusic: React.FC<Props> = () => {
   const handleSelectionArtist = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedArtist(e.target.value);
   };
+  const handleSelectionGenre = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedGenre(e.target.value);
+  };
 
-  const options = [
+  const Artistoptions = [
+    { value: "", label: "Select an option" },
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
+  ];
+  const Albumoptions = [
+    { value: "", label: "Select an option" },
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
+  ];
+  const Genreoptions = [
     { value: "", label: "Select an option" },
     { value: "option1", label: "Option 1" },
     { value: "option2", label: "Option 2" },
@@ -43,7 +58,7 @@ const AddMusic: React.FC<Props> = () => {
     console.log("Title:", title);
     console.log("Artist:", selectedArtist);
     console.log("Album:", selectedAlbum);
-    console.log("Genre:", genre);
+    console.log("Genre:", selectedGenre);
     console.log("Cover Image:", coverImage);
     console.log("Release Date:", releaseDate);
     console.log("select:", selectedAlbum);
@@ -55,7 +70,7 @@ const AddMusic: React.FC<Props> = () => {
     setSelectedArtist("");
     setSelectedAlbum("");
     setCoverImage(null);
-    setGenre("");
+    setSelectedGenre("");
     setReleaseDate("");
   };
 
@@ -70,6 +85,11 @@ const AddMusic: React.FC<Props> = () => {
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            @media (max-width: 768px) {
+              padding-left: 4rem;
+              padding-right: 4rem;
+              gap: 0.5rem;
+            }
           `}
         >
           <h1>Add Music</h1>
@@ -91,11 +111,12 @@ const AddMusic: React.FC<Props> = () => {
               customStyles: {
                 ...inputStyles,
                 color: "black",
+                fontWeight: "bold",
               },
             }}
             value={selectedArtist}
             onChange={handleSelectionArtist}
-            options={options}
+            options={Artistoptions}
           />
 
           <Selection
@@ -105,21 +126,26 @@ const AddMusic: React.FC<Props> = () => {
               customStyles: {
                 ...inputStyles,
                 color: "black",
+                fontWeight: "bold",
               },
             }}
             value={selectedAlbum}
             onChange={handleSelectionAlbum}
-            options={options}
+            options={Albumoptions}
           />
-          <Input
-            inputProps={{
+          <Selection
+            selectionProps={{
               name: "Genre",
-              type: "text",
               required: true,
-              customStyles: inputStyles,
+              customStyles: {
+                ...inputStyles,
+                color: "black",
+                fontWeight: "bold",
+              },
             }}
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
+            value={selectedGenre}
+            onChange={handleSelectionGenre}
+            options={Genreoptions}
           />
           <div
             className={css`
@@ -127,6 +153,11 @@ const AddMusic: React.FC<Props> = () => {
               justify-content: space-between;
               align-items: center;
               gap: 1rem;
+              @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 1rem;
+              }
             `}
           >
             <label htmlFor="coverImage">

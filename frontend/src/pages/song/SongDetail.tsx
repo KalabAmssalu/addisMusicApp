@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import RecentMusic from "../../components/Project/RecentMusic";
+import { Button } from "../../components/common/Button";
+import { css } from "@emotion/css";
+import { Trash2 } from "lucide-react";
 
 const Container = styled.div`
   background-color: #264653;
@@ -80,6 +83,7 @@ const SongDetail: React.FC<Props> = () => {
             alt="newone"
           />
         </CoverContainer>
+
         <DetailTable>
           <tbody>
             <tr>
@@ -105,6 +109,31 @@ const SongDetail: React.FC<Props> = () => {
           </tbody>
         </DetailTable>
       </Main>
+      <div
+        className={css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 1rem;
+        `}
+      >
+        <Button
+          variant="filled"
+          customStyles={{
+            fontSize: "18px",
+            padding: "5px 20px",
+            borderRadius: "10px",
+            borderColor: "blue",
+            backgroundColor: "red",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          Delete This Music <Trash2 />
+        </Button>
+      </div>
       <RecentMusic />
     </Container>
   );
