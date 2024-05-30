@@ -31,6 +31,12 @@ export const songApiSlice = apiSlice.injectEndpoints({
                 method: 'GET',
             })
         }),
+        getMusicById: builder.query({
+            query: (id) => ({
+                url: `${SONG_URL}/${id}`,
+                method: 'GET',
+            })
+        }),
         getAllAlbum: builder.query({
             query: () => ({
                 url: `${SONG_URL}/albums`,
@@ -77,6 +83,7 @@ export const {
     useGetAllMusicQuery,
     useGetAllAlbumQuery,
     useGetAllArtistQuery,
+    useGetMusicByIdQuery,
     useGetAllStatisticsQuery,
     useDeleteArtistMutation,
     useDeleteMusicMutation,

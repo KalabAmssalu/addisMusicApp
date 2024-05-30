@@ -53,3 +53,9 @@ export const ArtistName = styled.p`
   color: #fff;
   text-align: center;
 `;
+export const AlbumName = styled.p`
+  font-size: small;
+  color: gray;
+  text-align: center;
+  padding-top: 4px;
+`;

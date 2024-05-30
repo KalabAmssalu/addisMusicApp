@@ -162,8 +162,8 @@ Define MongoDB schema for User Include fields:
 
 - Design UI for displaying list of songs
 - Fetch songs from backend API and display them
-- Implement functionality to add, update, and delete songs
-- Update UI dynamically when songs are added, updated, or deleted without page reload
+- Implement functionality to add, and delete songs
+- Update UI dynamically when songs are added, or deleted without page reload
 
 ### Implement Statistics Section
 
@@ -182,7 +182,7 @@ Define MongoDB schema for User Include fields:
 
 ### Testing and Debugging
 
-- Write unit tests for components and Redux logic
+- Writing unit tests for components and Redux logic
 - Test UI functionality and behavior
 - Debug and fix any issues
 

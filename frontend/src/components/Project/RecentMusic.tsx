@@ -2,60 +2,31 @@ import React from "react";
 import MusicCarousel from "./MusicCarousel";
 import { css } from "@emotion/css";
 import { MoveLeft } from "lucide-react";
-type Props = {};
 
-const musicItems = [
-  {
-    id: 1,
-    title: "Song One",
-    artist: "Artist One",
-    coverUrl: "https://picsum.photos/150/150?music?1",
-  },
-  {
-    id: 2,
-    title: "Song Two",
-    artist: "Artist Two",
-    coverUrl: "https://picsum.photos/150/150?music?2",
-  },
-  {
-    id: 3,
-    title: "Song Three",
-    artist: "Artist Three",
-    coverUrl: "https://picsum.photos/150/150?music?3",
-  },
-  {
-    id: 4,
-    title: "Song Three",
-    artist: "Artist Three",
-    coverUrl: "https://picsum.photos/150/150?music?4",
-  },
-  {
-    id: 5,
-    title: "Song Three",
-    artist: "Artist Three",
-    coverUrl: "https://picsum.photos/150/150?music?5",
-  },
-  {
-    id: 6,
-    title: "Song Three",
-    artist: "Artist Three",
-    coverUrl: "https://picsum.photos/150/150?music?6",
-  },
-  {
-    id: 7,
-    title: "Song Three",
-    artist: "Artist Three",
-    coverUrl: "https://picsum.photos/150/150?music?10",
-  },
-  {
-    id: 8,
-    title: "Song Three",
-    artist: "Artist Three",
-    coverUrl: "https://picsum.photos/150/150?music?9",
-  },
-];
+interface Album {
+  _id: string;
+  title: string;
+  coverUrl?: string;
+}
 
-const RecentMusic = (props: Props) => {
+interface Artist {
+  _id: string;
+  name: string;
+}
+
+interface MusicItem {
+  _id: string;
+  title: string;
+  album?: Album;
+  artist?: Artist;
+  coverUrl?: string;
+}
+
+interface MusicProps {
+  musicItems: MusicItem[];
+}
+
+const RecentMusic: React.FC<MusicProps> = ({ musicItems }) => {
   return (
     <div
       className={css`

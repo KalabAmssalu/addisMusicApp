@@ -9,6 +9,7 @@ import RecentMusic from "../../components/Project/RecentMusic";
 import AllMusic from "../../components/Project/AllMusic";
 import PopularArtist from "../../components/Project/PopularArtist";
 import { ChevronUp } from "lucide-react";
+import { useGetAllMusicQuery } from "../../state/slices/songApiSlice";
 
 type Props = {};
 
@@ -19,6 +20,9 @@ const Song = (props: Props) => {
     topRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const { data: Music, isLoading } = useGetAllMusicQuery(undefined);
+
+  console.log("data imported", Music);
   return (
     <div
       ref={topRef}
@@ -51,7 +55,7 @@ const Song = (props: Props) => {
               Addis <span style={{ backgroundColor: "#c33727" }}>Music </span>
             </h1>
           </div>
-          <RecentMusic />
+          <RecentMusic musicItems={Music} />
           <AllMusic />
         </MainContainer>
       </PageContainer>

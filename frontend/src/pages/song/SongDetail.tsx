@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import RecentMusic from "../../components/Project/RecentMusic";
 import { Button } from "../../components/common/Button";
 import { css } from "@emotion/css";
-import { Trash2 } from "lucide-react";
+import { Loader, ShieldX, Trash2 } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  useGetAllMusicQuery,
+  useGetMusicByIdQuery,
+} from "../../state/slices/songApiSlice";
+import { SectionError } from "../../components/common/SectionError";
+import FormatDate from "../../service/FormatDate";
+import DataFetchStatus from "../../components/common/DataFetchStatus";
 
 const Container = styled.div`
   background-color: #264653;
-  height: fit-content;
   padding-bottom: 6rem;
   padding-top: 6rem;
   color: white;
@@ -20,9 +27,12 @@ const Main = styled.div`
   height: 70vh;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   padding: 1rem 8rem;
   gap: 3rem;
+  @media (max-width: 1024px) {
+    height: fit-content;
+    flex-direction: column;
+  }
 `;
 
 const CoverContainer = styled.div`
@@ -44,7 +54,6 @@ const CoverImage = styled.img`
   border-radius: 5px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
-
   &:hover {
     transform: scale(1.1);
   }
@@ -74,37 +83,109 @@ const DetailTable = styled.table`
 type Props = {};
 
 const SongDetail: React.FC<Props> = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { data: Music, isLoading, isError } = useGetMusicByIdQuery(id);
+
+  const { data: AllMusic, isLoading: loading } = useGetAllMusicQuery(undefined);
+
+  if (isLoading) {
+    return (
+      <SectionError>
+        <Loader size={80} color="yellow" />
+        <div>Loading ...</div>
+      </SectionError>
+    );
+  }
+
+  if (isError) {
+    return (
+      <SectionError>
+        <ShieldX size={80} color="red" />
+        <div>Error fetching music details</div>
+      </SectionError>
+    );
+  }
+
+  if (!Music) {
+    return (
+      <SectionError>
+        <ShieldX size={80} color="red" />
+        <div>No music found</div>
+      </SectionError>
+    );
+  }
+
+  const handleDelete = () => {
+    console.log("deleted");
+  };
   return (
     <Container>
       <Main>
         <CoverContainer>
-          <CoverImage
-            src="https://picsum.photos/150/150?music?9"
-            alt="newone"
-          />
+          <CoverImage src={Music.coverUrl} alt="Music Cover" />
         </CoverContainer>
 
         <DetailTable>
           <tbody>
             <tr>
               <th>Title</th>
-              <td>Sample Title</td>
+              <td>{Music.title}</td>
             </tr>
             <tr>
               <th>Artist</th>
-              <td>Sample Artist</td>
+              <td>
+                <div
+                  className={css`
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #2a9d8f;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    padding: 2px;
+                    &:hover {
+                      background-color: transparent;
+                      border: 2px solid white;
+                    }
+                  `}
+                  onClick={() => navigate(`/song/artist/${Music.artist._id}`)}
+                >
+                  <img
+                    src={Music.artist.artistUrl}
+                    alt="artist profile"
+                    className={css`
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 30px;
+                    `}
+                  />
+                  {Music.artist.name}
+                </div>
+              </td>
             </tr>
             <tr>
               <th>Album</th>
-              <td>Sample Album</td>
+              <td
+                className={css`
+                  cursor: pointer;
+                  &:hover {
+                    background-color: #2a9d8f;
+                  }
+                `}
+                onClick={() => navigate(`/song/album/${Music.album._id}`)}
+              >
+                {Music.album.title}
+              </td>
             </tr>
             <tr>
               <th>Genre</th>
-              <td>Sample Genre</td>
+              <td>{Music.genre}</td>
             </tr>
             <tr>
               <th>Release Date</th>
-              <td>Sample Release Date</td>
+              <td>{FormatDate(Music.releaseDate)}</td>
             </tr>
           </tbody>
         </DetailTable>
@@ -130,11 +211,26 @@ const SongDetail: React.FC<Props> = () => {
             alignItems: "center",
             gap: "1rem",
           }}
+          onClick={handleDelete}
         >
           Delete This Music <Trash2 />
         </Button>
       </div>
-      <RecentMusic />
+      {loading ? (
+        <div
+          className={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+          `}
+        >
+          <Loader size={80} color="yellow" />
+          <div>Loading ...</div>
+        </div>
+      ) : (
+        <RecentMusic musicItems={AllMusic} />
+      )}
     </Container>
   );
 };

@@ -1,4 +1,3 @@
-// MusicCarousel.tsx
 import React from "react";
 import {
   CarouselContainer,
@@ -6,36 +5,55 @@ import {
   MusicCover,
   MusicTitle,
   ArtistName,
+  AlbumName,
 } from "../common/styles/CarouselStyles";
 import { Link } from "react-router-dom";
 import { css } from "@emotion/css";
 
-type MusicItem = {
-  id: number;
+interface Album {
+  _id: string;
   title: string;
-  artist: string;
-  coverUrl: string;
-};
+  coverUrl?: string;
+}
 
-type MusicCarouselProps = {
+interface Artist {
+  _id: string;
+  name: string;
+}
+
+interface MusicItem {
+  _id: string;
+  title: string;
+  album?: Album;
+  artist?: Artist;
+  coverUrl?: string;
+}
+
+interface MusicCarouselProps {
   musicItems: MusicItem[];
-};
+}
 
 const MusicCarousel: React.FC<MusicCarouselProps> = ({ musicItems }) => {
+  if (!musicItems) {
+    return <div>No music items available</div>;
+  }
+
   return (
     <CarouselContainer>
-      {musicItems.map((item) => (
+      {musicItems.map((item, index) => (
         <Link
-          to={`/song/${item.id}`}
-          key={item.id}
+          to={`/song/${item._id}`}
+          key={item._id}
           className={css`
             text-decoration: none;
           `}
         >
-          <CarouselItem key={item.id}>
+          <CarouselItem key={item._id}>
             <MusicCover src={item.coverUrl} alt={`${item.title} cover`} />
             <MusicTitle>{item.title}</MusicTitle>
-            <ArtistName>{item.artist}</ArtistName>
+
+            {item.artist && <ArtistName>Artist: {item.artist.name}</ArtistName>}
+            {item.album && <AlbumName>Album: {item.album.title}</AlbumName>}
           </CarouselItem>
         </Link>
       ))}

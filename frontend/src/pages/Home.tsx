@@ -40,7 +40,9 @@ const Home = (props: Props) => {
           background-color: #264653;
         `}
       >
-        <RecentMusic />
+        {/*
+        //TODO here
+        <RecentMusic /> */}
       </div>
       <PopularArtist />
       <Banner />
